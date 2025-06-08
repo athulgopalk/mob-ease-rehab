@@ -1,11 +1,12 @@
-// components/common/Header.js
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
+
+// Placeholder logo for fallback
+const placeholderLogo =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -16,118 +17,80 @@ const navigation = [
 ];
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // Animation variants for header slide-in
+  const headerVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  // Animation variants for nav links
+  const linkVariants = {
+    initial: { opacity: 1, scale: 1 },
+    hover: { scale: 1.05, transition: { duration: 0.2, ease: "easeInOut" } },
+  };
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 bg-white shadow-md"
+      initial="hidden"
+      animate="visible"
+      variants={headerVariants}
+      className="sticky top-0 z-50 bg-[#FFFFFF] shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
+      role="banner"
     >
-      <Disclosure as="nav" className="container mx-auto px-4 py-4">
-        {({ open }) => (
-          <>
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Link href="/">
-                <Image
-                  src="/images/logo.png" // Replace with actual logo path
-                  alt="MOB-EASE Rehab Logo"
-                  width={150}
-                  height={50}
-                  className="h-12 w-auto"
-                  priority
-                />
-              </Link>
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" aria-label="MOB-EASE Rehab Home">
+            <Image
+              src="/images/logo.png" // Replace with actual logo path
+              alt="MOB-EASE Rehab Logo"
+              width={150}
+              height={50}
+              className="h-12 w-auto"
+              placeholder="blur"
+              blurDataURL={placeholderLogo}
+              priority
+              onError={() => console.warn("Failed to load logo")}
+            />
+          </Link>
 
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex space-x-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-[#1A2B6B] hover:text-[#FFE6F0] font-medium transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* CTA Button */}
-              <motion.a
-                href="https://wa.me/+91XXXXXXXXXX" // Replace with actual WhatsApp number
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className="hidden md:block bg-[#1A2B6B] text-white px-4 py-2 rounded-md hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-colors"
+          {/* Desktop Navigation */}
+          <ul className="flex space-x-8" role="navigation">
+            {navigation.map((item) => (
+              <motion.li
+                key={item.name}
+                variants={linkVariants}
+                initial="initial"
+                whileHover="hover"
+                className="relative"
               >
-                Book Appointment
-              </motion.a>
-
-              {/* Mobile Menu Button */}
-              <Disclosure.Button
-                className="md:hidden p-2 rounded-md text-[#1A2B6B] hover:bg-[#FFE6F0]"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <span className="sr-only">Open menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                <Link
+                  href={item.href}
+                  className="text-[#1A2B6B] font-medium text-base uppercase tracking-wide px-3 py-2 rounded-md hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
                 >
-                  {open ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </Disclosure.Button>
-            </div>
+                  {item.name}
+                </Link>
+              </motion.li>
+            ))}
+          </ul>
 
-            {/* Mobile Navigation */}
-            <Disclosure.Panel
-              as={motion.div}
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="flex flex-col space-y-4 py-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-[#1A2B6B] hover:text-[#FFE6F0] font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <a
-                  href="https://wa.me/+91XXXXXXXXXX" // Replace with actual WhatsApp number
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#1A2B6B] text-white px-4 py-2 rounded-md text-center hover:bg-[#FFE6F0] hover:text-[#1A2B6B]"
-                >
-                  Book Appointment
-                </a>
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
+          {/* CTA Button */}
+          <motion.a
+            href="https://wa.me/+919876543210" // Replace with actual WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(0,0,0,0.15)" }}
+            className="bg-[#1A2B6B] text-[#FFFFFF] px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+            aria-label="Book Appointment via WhatsApp"
+          >
+            Book Appointment
+          </motion.a>
+        </div>
+      </nav>
     </motion.header>
   );
 };

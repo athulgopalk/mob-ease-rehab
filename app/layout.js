@@ -2,6 +2,7 @@
 import Footer from "@/components/common/Footer";
 import  Header  from "../components/common/Header";
 import "./globals.css";
+import ResponsiveHeader from "@/components/common/ResponsiveHeader";
 
 export const metadata = {
   title: "MOB-EASE Rehab | Physiotherapy & Mobility Aids in Kottayam",
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="font-poppins">
-        <Header />
+       <ResponsiveHeader/>
         <main>{children}</main>
         <Footer/>
       </body>
