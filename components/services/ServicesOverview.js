@@ -89,7 +89,7 @@ const ServicesOverview = () => {
       transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 },
     }),
     hover: {
-      scale率先: scale: 1.05,
+      scale: 1.05,
       boxShadow: "0 8px 24px rgba(26, 43, 107, 0.15)",
       transition: { duration: 0.3 },
     },
