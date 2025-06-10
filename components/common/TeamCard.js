@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Placeholder image for fallback
 const placeholderImage =
@@ -40,7 +41,7 @@ const TeamCard = ({
       opacity: 0,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1], // Custom cubic-bezier for luxurious feel
+        ease: [0.4, 0, 0.2, 1],
       },
     },
     expanded: {
@@ -48,7 +49,7 @@ const TeamCard = ({
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: [0.4, 0, 0.2, 1], // Same easing for consistency
+        ease: [0.4, 0, 0.2, 1],
       },
     },
   };
@@ -78,11 +79,15 @@ const TeamCard = ({
       {/* Team Member Image and Basic Info */}
       <div className="flex items-center gap-3 sm:gap-4 mb-4">
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0">
-          <img
+          <Image
             src={image}
             alt={alt}
+            width={80}
+            height={80}
             className="w-full h-full object-cover"
-            onError={(e) => (e.target.src = placeholderImage)}
+            placeholder="blur"
+            blurDataURL={placeholderImage}
+            onError={() => console.warn(`Failed to load image for ${name}`)}
           />
         </div>
         <div className="flex-1">
@@ -108,7 +113,7 @@ const TeamCard = ({
       >
         {mission && (
           <p className="text-sm md:text-base text-[#1A2B6B] italic mb-4">
-            "{mission}"
+            &quot;{mission}&quot;
           </p>
         )}
         {details && (

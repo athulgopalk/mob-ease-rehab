@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import Head from "next/head";
 
 // Placeholder image for fallback
 const placeholderImage =
@@ -67,7 +68,7 @@ const OurStory = () => {
       aria-label="Our Story Section"
     >
       {/* SEO Meta Tags */}
-      <head>
+      <Head>
         <meta
           name="description"
           content="Discover the story behind MOB-EASE Rehab, Kottayam’s premier physiotherapy clinic, founded to empower women, children, and individuals with disabilities through innovative care."
@@ -76,7 +77,7 @@ const OurStory = () => {
           name="keywords"
           content="MOB-EASE Rehab story, physiotherapy Kottayam, women’s health physiotherapy, pediatric rehabilitation"
         />
-      </head>
+      </Head>
 
       {/* Cinematic Effects */}
       <style>{cinematicStyles}</style>
@@ -98,7 +99,7 @@ const OurStory = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           <Image
-            src="/images/kottayam-clinic.jpg" // Replace with actual image path
+            src="/images/kottayam-clinic.jpg"
             alt="MOB-EASE Rehab Kottayam clinic inspiring hope"
             width={1920}
             height={1080}

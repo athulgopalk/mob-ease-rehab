@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 // Placeholder image for fallback
 const placeholderImage =
@@ -80,7 +81,7 @@ const AboutHero = () => {
       aria-label="About Hero Section"
     >
       {/* SEO Meta Tags */}
-      <head>
+      <Head>
         <title>About MOB-EASE Rehab | Physiotherapy in Kottayam</title>
         <meta
           name="description"
@@ -90,7 +91,7 @@ const AboutHero = () => {
           name="keywords"
           content="about MOB-EASE Rehab, physiotherapy Kottayam, mobility solutions, women’s health physiotherapy"
         />
-      </head>
+      </Head>
 
       {/* Ray Effect */}
       <style>{rayStyles}</style>
@@ -120,7 +121,7 @@ const AboutHero = () => {
             <p className="text-base sm:text-lg text-[#1A2B6B] mb-8 max-w-md mx-auto md:mx-0">
               At MOB-EASE Rehab, we’re dedicated to transforming lives with
               innovative physiotherapy, mobility solutions, and personalized
-              care, spreading hope and empowerment  and beyond.
+              care, spreading hope and empowerment.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
               <motion.a
@@ -156,7 +157,7 @@ const AboutHero = () => {
             className="md:w-1/2"
           >
             <Image
-              src="/images/about-hero.jpg" // Replace with actual hero image
+              src="/images/about-hero.jpg"
               alt="Physiotherapist spreading hope with patient care"
               width={600}
               height={400}

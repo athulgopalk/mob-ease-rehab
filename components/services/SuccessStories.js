@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 // Placeholder image for fallback
 const placeholderImage =
@@ -16,7 +17,7 @@ const successStories = [
     title: "Regaining Confidence with Women’s Physiotherapy",
     description:
       "After struggling with post-natal pelvic pain, Priya found relief through MOB-EASE’s tailored women’s health program. Our physiotherapy sessions helped her regain strength and confidence.",
-    image: "/images/priya-menon.jpg", // Replace with actual image path
+    image: "/images/priya-menon.jpg",
     alt: "Priya Menon, women’s physiotherapy patient at MOB-EASE Rehab",
     href: "/success-stories/priya-menon",
   },
@@ -25,7 +26,7 @@ const successStories = [
     title: "A Child’s Journey to Mobility",
     description:
       "Arjun, a 5-year-old with cerebral palsy, made remarkable progress with our pediatric rehabilitation. His custom gait trainer and therapy sessions boosted his independence.",
-    image: "/images/arjun-nair.jpg", // Replace with actual image path
+    image: "/images/arjun-nair.jpg",
     alt: "Arjun Nair, pediatric physiotherapy patient at MOB-EASE Rehab",
     href: "/success-stories/arjun-nair",
   },
@@ -34,7 +35,7 @@ const successStories = [
     title: "Back to Work with Neuro Rehabilitation",
     description:
       "After a stroke, Vijay regained mobility through MOB-EASE’s neuro rehabilitation. Our personalized care plan and assistive devices helped him return to his job.",
-    image: "/images/vijay-thomas.jpg", // Replace with actual image path
+    image: "/images/vijay-thomas.jpg",
     alt: "Vijay Thomas, neuro rehabilitation patient at MOB-EASE Rehab",
     href: "/success-stories/vijay-thomas",
   },
@@ -75,7 +76,7 @@ const SuccessStories = () => {
       aria-label="Success Stories Section"
     >
       {/* SEO Meta Tags */}
-      <head>
+      <Head>
         <title>Success Stories | MOB-EASE Rehab Kottayam</title>
         <meta
           name="description"
@@ -85,7 +86,7 @@ const SuccessStories = () => {
           name="keywords"
           content="women’s physiotherapy Kottayam, pediatric rehabilitation Kottayam, neuro rehabilitation, MOB-EASE Rehab success stories"
         />
-      </head>
+      </Head>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Heading */}

@@ -12,6 +12,7 @@ import {
   Users,
   Briefcase,
 } from "lucide-react";
+import Head from "next/head";
 
 // Service data
 const services = [
@@ -88,7 +89,7 @@ const ServicesOverview = () => {
       transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 },
     }),
     hover: {
-      scale: 1.05,
+      scale率先: scale: 1.05,
       boxShadow: "0 8px 24px rgba(26, 43, 107, 0.15)",
       transition: { duration: 0.3 },
     },
@@ -100,13 +101,13 @@ const ServicesOverview = () => {
       aria-label="Services Overview section"
     >
       {/* SEO Meta Title */}
-      <head>
+      <Head>
         <title>Physiotherapy Services in Kottayam | MOB-EASE Rehab</title>
         <meta
           name="description"
           content="Explore MOB-EASE Rehab’s comprehensive physiotherapy services in Kottayam, including mobility solutions, women’s health, pediatric rehabilitation, and more."
         />
-      </head>
+      </Head>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Heading */}
