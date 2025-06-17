@@ -37,11 +37,11 @@ const Footer = () => {
         >
           <Link href="/">
             <Image
-              src="/images/logo.png" // Replace with actual logo path
+              src="/Logo.jpg" // Replace with actual logo path
               alt="MOB-EASE Rehab Logo"
               width={150}
               height={50}
-              className="h-10 w-auto"
+              className="h-14 w-auto rounded-full mb-3 m-3"
             />
           </Link>
           <p className="text-sm text-[#E6F0FA]">

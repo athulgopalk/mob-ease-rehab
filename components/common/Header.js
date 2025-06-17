@@ -10,9 +10,9 @@ const placeholderLogo =
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
   { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -41,16 +41,16 @@ const Header = () => {
       className="sticky top-0 z-50 bg-[#FFFFFF] shadow-[0_2px_5px_rgba(0,0,0,0.1)]"
       role="banner"
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-10 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" aria-label="MOB-EASE Rehab Home">
             <Image
-              src="/images/logo.png" // Replace with actual logo path
+              src="/Logo.jpg" // Replace with actual logo path
               alt="MOB-EASE Rehab Logo"
-              width={150}
+              width={180}
               height={50}
-              className="h-12 w-auto"
+              className="h-14 w-auto"
               placeholder="blur"
               blurDataURL={placeholderLogo}
               priority

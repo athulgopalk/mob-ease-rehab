@@ -11,9 +11,9 @@ const placeholderLogo =
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
   { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -57,7 +57,7 @@ const MobHeader = () => {
         {/* Logo */}
         <Link href="/" aria-label="MOB-EASE Rehab Home">
           <Image
-            src="/images/logo.png" // Replace with actual logo path
+            src="/Logo.jpg" // Replace with actual logo path
             alt="MOB-EASE Rehab Logo"
             width={120}
             height={40}
