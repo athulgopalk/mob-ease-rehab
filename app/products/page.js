@@ -1,4 +1,5 @@
 
+import MobilityGuide from "@/components/products/MobilityGuide";
 import ProductFilters from "@/components/products/ProductFilters";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductHero from "@/components/products/ProductHero";
@@ -9,6 +10,7 @@ export default function page() {
     <main>
      <ProductHero/>
     <ProductGrid/>
+    <MobilityGuide/>
     </main>
   );
 }
