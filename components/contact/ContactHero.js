@@ -93,24 +93,12 @@ const ContactHero = () => {
   };
 
   return (
+    
     <section
       className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24"
       aria-label="Contact Hero Section"
     >
-      {/* SEO Meta Tags */}
-      <head>
-        <title>Contact MOB-EASE Rehab | Physiotherapy in Kottayam</title>
-        <meta
-          name="description"
-          content="Get in touch with MOB-EASE Rehab, Kottayam’s premier physiotherapy clinic, for personalized mobility solutions, women’s health, and pediatric care."
-        />
-        <meta
-          name="keywords"
-          content="contact MOB-EASE Rehab, physiotherapy Kottayam, book physiotherapy appointment, mobility solutions Kottayam"
-        />
-      </head>
-
-      {/* Particle Effect */}
+      
       <style>{particleStyles}</style>
       <motion.div
         className="particle-bg"
