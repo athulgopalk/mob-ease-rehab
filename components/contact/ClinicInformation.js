@@ -514,18 +514,23 @@ const ClinicInformation = () => {
                     <div>
                       <p className="text-sm font-semibold">Address</p>
                       <p className="text-sm">
-                        123 Wellness Road, Near Kottayam Medical College,
-                        Kottayam, Kerala 686008
+                        Hrudayam House
+                        <br />
+                        SH Mount P.O
+                        <br />
+                        Kumaranalloor, Kottayam
+                        <br />
+                        686006
                       </p>
                     </div>
                     <div>
                       <p className="text-sm font-semibold">Phone</p>
-                      <p className="text-sm">+91 9876543210</p>
+                      <p className="text-sm">: +91 8129125810</p>
                     </div>
-                    <div>
+                    {/* <div>
                       <p className="text-sm font-semibold">Email</p>
                       <p className="text-sm">info@mobeaserehab.com</p>
-                    </div>
+                    </div> */}
                     <div>
                       <p className="text-sm font-semibold">Hours</p>
                       <p className="text-sm">

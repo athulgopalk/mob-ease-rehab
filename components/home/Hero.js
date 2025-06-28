@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-
-// Placeholder image for fallback
+import {VolumeOff } from "lucide-react"
+ // Placeholder image for fallback
 const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
@@ -69,11 +69,15 @@ const Hero = () => {
             className="md:w-1/2 text-center"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2B6B] mb-6 leading-tight max-w-lg mx-auto">
-              Empower Your Mobility with MOB-EASE Into independent Mobility
+              Welcome to Mob Ease – where mobility meets independence.
             </h1>
             <p className="text-base sm:text-lg text-[#1A2B6B] mb-8 max-w-md mx-auto">
-              Transforming lives through personalized physiotherapy and
-              innovative mobility solutions.
+              We specialize in personalized rehabilitation, adaptive equipment,
+              and inclusive therapy solutions. From children to seniors, our
+              expert team empowers every step toward a better quality of life.
+              We blend innovation with compassion to create accessible,
+              life-changing care.
+              <br /> Join us in building a world where every move matters.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <motion.a
@@ -106,19 +110,29 @@ const Hero = () => {
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="md:w-1/2"
+            className="md:w-1/2 relative"
           >
-            <Image
-              src="/images/hero-image.jpg" 
-              alt="Patient using mobility aid in physiotherapy"
-              width={600}
-              height={400}
+            <video
+              src="/hero-video.mp4" // Replace with your video path
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-auto rounded-xl object-cover shadow-[0_4px_16px_rgba(0,0,0,0.15)]"
-              placeholder="blur"
-              blurDataURL={placeholderImage}
-              priority
-              onError={() => console.warn("Failed to load hero image")}
+              onError={() => console.warn("Failed to load hero video")}
             />
+            <div className="absolute bottom-4 right-4">
+              <button
+                onClick={() => {
+                  const video = document.querySelector("video");
+                  video.muted = !video.muted;
+                }}
+                className="p-2 bg-[#1A2B6B]/80 hover:bg-[#1A2B6B] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#1A2B6B] transition-colors duration-200"
+                aria-label="Toggle video sound"
+              >
+                <VolumeOff />
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -45,8 +45,9 @@ const Footer = () => {
             />
           </Link>
           <p className="text-sm text-[#E6F0FA]">
-            Empowering independence through physiotherapy and mobility solutions
-            in Kottayam, Kerala.
+            Empowering every step—from kids to seniors—with personalized rehab,
+            adaptive equipment, and inclusive therapy. Innovative, compassionate
+            care for a better quality of life. Because every move matters.
           </p>
         </motion.div>
 
@@ -93,14 +94,18 @@ const Footer = () => {
         >
           <h3 className="text-base font-semibold text-[#FFE6F0]">Contact Us</h3>
           <p className="text-sm text-[#E6F0FA]">
-             Kerala, India
+            Mob Ease Rehabilitation Hub
             <br />
-            Phone: +91-XXXXXXXXXX
+            10/97 Karavaram
             <br />
-            Email: info@mobeaserehab.com
+            Vanchiyoor P.O Thiruvananthapuram 695102
+            <br />
+            Phone: +91 9496095810
+            <br />
+            email: contactus@mobeaserehab.com
           </p>
           <motion.a
-            href="https://wa.me/+91XXXXXXXXXX" // Replace with actual WhatsApp number
+            href="https://wa.me/+919496095810" // Replace with actual WhatsApp number
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{
@@ -144,7 +149,7 @@ const Footer = () => {
               </svg>
             </motion.a>
             <motion.a
-              href="https://wa.me/+91XXXXXXXXXX" // Replace with actual WhatsApp link
+              href="https://wa.me/+919496095810" // Replace with actual WhatsApp link
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, color: "#FFE6F0" }}
