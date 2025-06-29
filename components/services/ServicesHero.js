@@ -48,7 +48,7 @@ const ServicesHero = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24 px-19"
       aria-label="Services Hero section"
     >
       {/* Background */}

@@ -77,12 +77,12 @@ const AboutHero = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24 px-19"
       aria-label="About Hero Section"
     >
       {/* SEO Meta Tags */}
       <Head>
-        <title>About MOB-EASE Rehab | Physiotherapy in Kottayam</title>
+        <title>About MOB-EASE Rehab | Physiotherapy in Kerala</title>
         <meta
           name="description"
           content="Learn about MOB-EASE Rehab, Kottayam’s leading physiotherapy clinic, dedicated to empowering lives through mobility solutions, women’s health, and pediatric care."
@@ -157,7 +157,7 @@ const AboutHero = () => {
             className="md:w-1/2"
           >
             <Image
-              src="/images/about-hero.jpg"
+              src="/About-Hero.jpg"
               alt="Physiotherapist spreading hope with patient care"
               width={600}
               height={400}
