@@ -133,7 +133,6 @@
 
 // export default TeamCard;
 
-
 "use client";
 
 import { useState } from "react";
@@ -244,7 +243,7 @@ const TeamCard = ({
       {/* Mission Statement */}
       {mission && (
         <p className="text-sm sm:text-base text-[#1A2B6B] italic mb-4 font-light">
-          "{mission}"
+          {`“${mission}”`}
         </p>
       )}
 
