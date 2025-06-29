@@ -170,7 +170,7 @@ const KottayamClinic = () => {
             animate={isInView ? "visible" : "hidden"}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.135763614157!2d76.5199643147982!3d9.591566293149777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzUnMjkuNiJOIDc2wrAzMScyMi4zIkU!5e0!3m2!1sen!2sin!4v1697681234567!5m2!1sen!2sin"
+              src="https://maps.app.goo.gl/C8KAwsCzQ7Wtopu76?g_st=aw"
               width="100%"
               height="100%"
               style={{ border: 0 }}

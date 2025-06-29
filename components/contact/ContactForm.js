@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 // Form submission note: For HIPAA compliance, ensure the form submission endpoint is secure (e.g., HTTPS, encrypted storage),
 // and implement server-side validation and data protection measures compliant with HIPAA regulations.
@@ -20,6 +19,12 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [modal, setModal] = useState({
+    isOpen: false,
+    type: "success", // "success" or "error"
+    message: "",
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -27,11 +32,99 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement secure form submission to a HIPAA-compliant backend
-    console.log("Form submitted:", formData);
-    // Example: Send data to a secure API endpoint
-    // fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-    alert("Form submitted! (Placeholder action)");
+
+    // Basic client-side validation
+    if (!formData.name.trim()) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Please enter your full name.",
+      });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Please enter a valid 10-digit phone number.",
+      });
+      return;
+    }
+    if (!formData.appointmentType) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Please select an appointment type.",
+      });
+      return;
+    }
+    if (!formData.message.trim()) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Please enter a message.",
+      });
+      return;
+    }
+
+    // Format the message for WhatsApp
+    const whatsappMessage = `
+      New Contact Form Submission:
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      Appointment Type: ${formData.appointmentType}
+      Message: ${formData.message}
+    `.trim();
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // WhatsApp number
+    const whatsappNumber = "+919496095810";
+
+    // Construct WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    try {
+      // Open WhatsApp with pre-filled message
+      window.open(whatsappURL, "_blank");
+
+      // Show success modal
+      setModal({
+        isOpen: true,
+        type: "success",
+        message:
+          "Opening WhatsApp with your message. Please press 'Send' to submit.",
+      });
+
+      // Reset form after submission
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        appointmentType: "",
+        message: "",
+      });
+    } catch (error) {
+      setModal({
+        isOpen: true,
+        type: "error",
+        message: "Failed to open WhatsApp. Please try again.",
+      });
+    }
+  };
+
+  const closeModal = () => {
+    setModal({ isOpen: false, type: "success", message: "" });
   };
 
   // Animation variants for heading
@@ -75,12 +168,18 @@ const ContactForm = () => {
     tap: { scale: 0.95 },
   };
 
+  // Animation variants for modal
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+  };
+
   return (
     <section
       className="relative w-full py-16 md:py-24 bg-[#FFFFFF] overflow-hidden"
       aria-label="Contact Form Section"
     >
-      {/* SEO Meta Tags */}
+      {/* SEO Meta Tags (Note: Move to next/head for Next.js) */}
       <head>
         <title>Contact MOB-EASE Rehab | Physiotherapy in Kottayam</title>
         <meta
@@ -236,11 +335,44 @@ const ContactForm = () => {
               whileTap="tap"
               aria-label="Submit Contact Form"
             >
-              Send Message
+              Send via WhatsApp
             </motion.button>
           </motion.div>
         </motion.form>
       </div>
+
+      {/* Modal */}
+      {modal.isOpen && (
+        <motion.div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="bg-[#FFFFFF] rounded-lg p-6 max-w-md w-full mx-4"
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <h3
+              className={`text-lg font-semibold mb-4 ${
+                modal.type === "success" ? "text-[#1A2B6B]" : "text-red-600"
+              }`}
+            >
+              {modal.type === "success" ? "Success" : "Error"}
+            </h3>
+            <p className="text-[#1A2B6B] mb-6">{modal.message}</p>
+            <button
+              onClick={closeModal}
+              className="w-full bg-[#1A2B6B] text-[#FFFFFF] px-4 py-2 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+              aria-label="Close Modal"
+            >
+              Close
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };

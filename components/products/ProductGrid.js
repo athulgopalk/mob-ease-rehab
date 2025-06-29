@@ -14,58 +14,112 @@ const placeholderImage =
 // Product data
 const products = [
   {
-    id: "gantry-hoist",
-    name: "Gantry Hoist",
+    id: "gantry-hoist-single-motor",
+    name: "Gantry Hoist (Single Motor)",
     category: "gantry-hoists",
     price: 15000,
     useCase: ["home", "clinic"],
-    image: "/images/gantry-hoist.jpg", // Replace with actual image path
-    alt: "Gantry Hoist mobility aid by MOB-EASE Rehab",
+    image: "/images/gantry-hoist-single-motor.jpg", // Replace with actual image path
+    alt: "Gantry Hoist Single Motor for patient transfers by MOB-EASE Rehab",
   },
   {
-    id: "sarah-steady",
-    name: "Sarah Steady",
-    category: "paediatric-solutions",
-    price: 8000,
+    id: "gantry-hoist-dual-motor",
+    name: "Gantry Hoist (Dual Motor)",
+    category: "gantry-hoists",
+    price: 18000,
     useCase: ["home", "clinic"],
-    image: "/images/sarah-steady.jpg", // Replace with actual image path
-    alt: "Sarah Steady pediatric mobility aid by MOB-EASE Rehab",
+    image: "/images/gantry-hoist-dual-motor.jpg", // Replace with actual image path
+    alt: "Gantry Hoist Dual Motor for independent transfers by MOB-EASE Rehab",
   },
   {
-    id: "car-swivel-seat",
-    name: "Car Swivel Seat",
-    category: "wheelchairs",
-    price: 12000,
-    useCase: ["travel"],
-    image: "/images/car-swivel-seat.jpg", // Replace with actual image path
-    alt: "Car Swivel Seat mobility aid by MOB-EASE Rehab",
+    id: "full-body-hoist-portable",
+    name: "Full Body Hoist (Portable)",
+    category: "hoists",
+    price: 16000,
+    useCase: ["home", "clinic"],
+    image: "/images/full-body-hoist-portable.jpg", // Replace with actual image path
+    alt: "Portable Full Body Hoist for complete mobility loss by MOB-EASE Rehab",
   },
   {
-    id: "stair-lift",
-    name: "Stair Lift",
+    id: "power-assisted-standing-hoist",
+    name: "Power-Assisted Standing Hoist (Portable)",
+    category: "hoists",
+    price: 20000,
+    useCase: ["home", "clinic"],
+    image: "/images/power-assisted-standing-hoist.jpg", // Replace with actual image path
+    alt: "Power-Assisted Standing Hoist for gait training by MOB-EASE Rehab",
+  },
+  {
+    id: "sarah-steady-walking-board",
+    name: "Sarah Steady with Walking Board",
+    category: "paediatric-solutions",
+    price: 9000,
+    useCase: ["home", "clinic"],
+    image: "/images/sarah-steady-walking-board.jpg", // Replace with actual image path
+    alt: "Sarah Steady with Walking Board for standing aid by MOB-EASE Rehab",
+  },
+  {
+    id: "gait-training-hoist",
+    name: "Gait Training Hoist",
+    category: "hoists",
+    price: 17000,
+    useCase: ["clinic", "rehabilitation"],
+    image: "/images/gait-training-hoist.jpg", // Replace with actual image path
+    alt: "Gait Training Hoist for neurological recovery by MOB-EASE Rehab",
+  },
+  {
+    id: "stair-lift-straight",
+    name: "Stair Lift (Straight)",
     category: "stair-lifts",
     price: 25000,
     useCase: ["home"],
-    image: "/images/stair-lift.jpg", // Replace with actual image path
-    alt: "Stair Lift mobility aid by MOB-EASE Rehab",
+    image: "/images/stair-lift-straight.jpg", // Replace with actual image path
+    alt: "Straight Stair Lift for elderly mobility by MOB-EASE Rehab",
   },
   {
-    id: "lightweight-wheelchair",
-    name: "Lightweight Wheelchair",
+    id: "stair-lift-curved",
+    name: "Stair Lift (Curved)",
+    category: "stair-lifts",
+    price: 30000,
+    useCase: ["home"],
+    image: "/images/stair-lift-curved.jpg", // Replace with actual image path
+    alt: "Curved Stair Lift for multi-level homes by MOB-EASE Rehab",
+  },
+  {
+    id: "car-swivel-seat-assisted",
+    name: "Car Swivel Seat (With Assistance)",
     category: "wheelchairs",
-    price: 18000,
-    useCase: ["home", "travel"],
-    image: "/images/lightweight-wheelchair.jpg", // Replace with actual image path
-    alt: "Lightweight Wheelchair by MOB-EASE Rehab",
+    price: 12000,
+    useCase: ["travel"],
+    image: "/images/car-swivel-seat-assisted.jpg", // Replace with actual image path
+    alt: "Assisted Car Swivel Seat for transfers by MOB-EASE Rehab",
   },
   {
-    id: "pediatric-walker",
-    name: "Pediatric Walker",
+    id: "car-swivel-seat-self-transfer",
+    name: "Car Swivel Seat (Self-Transfer)",
+    category: "wheelchairs",
+    price: 14000,
+    useCase: ["travel"],
+    image: "/images/car-swivel-seat-self-transfer.jpg", // Replace with actual image path
+    alt: "Self-Transfer Car Swivel Seat for independent mobility by MOB-EASE Rehab",
+  },
+  {
+    id: "paediatric-sensory-room",
+    name: "Paediatric Sensory Room Installation",
     category: "paediatric-solutions",
-    price: 6000,
+    price: 35000,
     useCase: ["home", "clinic"],
-    image: "/images/pediatric-walker.jpg", // Replace with actual image path
-    alt: "Pediatric Walker by MOB-EASE Rehab",
+    image: "/images/paediatric-sensory-room.jpg", // Replace with actual image path
+    alt: "Paediatric Sensory Room for children with special needs by MOB-EASE Rehab",
+  },
+  {
+    id: "paediatric-disability-solutions",
+    name: "Paediatric Room – Complete Disability Solutions",
+    category: "paediatric-solutions",
+    price: 40000,
+    useCase: ["home", "clinic"],
+    image: "/images/paediatric-disability-solutions.jpg", // Replace with actual image path
+    alt: "Paediatric Complete Disability Solutions for enhanced independence by MOB-EASE Rehab",
   },
 ];
 
