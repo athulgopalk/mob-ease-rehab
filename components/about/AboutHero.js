@@ -157,7 +157,7 @@ const AboutHero = () => {
             className="md:w-1/2"
           >
             <Image
-              src="/About-Hero.jpg"
+              src="/about-hero.webp"
               alt="Physiotherapist spreading hope with patient care"
               width={600}
               height={400}

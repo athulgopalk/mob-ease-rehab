@@ -16,28 +16,28 @@ const successStories = [
     name: "Priya Menon",
     title: "Regaining Confidence with Women’s Physiotherapy",
     description:
-      "After struggling with post-natal pelvic pain, Priya found relief through MOB-EASE’s tailored women’s health program. Our physiotherapy sessions helped her regain strength and confidence.",
-    image: "/images/priya-menon.jpg",
-    alt: "Priya Menon, women’s physiotherapy patient at MOB-EASE Rehab",
+      "After struggling with post‑natal pelvic pain, Priya found relief through MOB‑EASE’s tailored women’s health program. Our physiotherapy sessions helped her regain strength and confidence.",
+    image: "/priya-menon.webp",
+    alt: "Priya Menon, women’s physiotherapy patient at MOB‑EASE Rehab",
     href: "/success-stories/priya-menon",
   },
   {
-    name: "Arjun Nair",
+    name: "Nihal Ahammed",
     title: "A Child’s Journey to Mobility",
     description:
-      "Arjun, a 5-year-old with cerebral palsy, made remarkable progress with our pediatric rehabilitation. His custom gait trainer and therapy sessions boosted his independence.",
-    image: "/images/arjun-nair.jpg",
-    alt: "Arjun Nair, pediatric physiotherapy patient at MOB-EASE Rehab",
-    href: "/success-stories/arjun-nair",
+      "Nihal, a 5‑year‑old with cerebral palsy, made remarkable progress with our pediatric rehabilitation. His custom gait trainer and therapy sessions boosted his independence.",
+    image: "/nihal-ahammed.webp",
+    alt: "Nihal Ahammed, pediatric physiotherapy patient at MOB‑EASE Rehab",
+    href: "/success-stories/nihal-ahammed",
   },
   {
-    name: "Vijay Thomas",
+    name: "Thomas Mathew",
     title: "Back to Work with Neuro Rehabilitation",
     description:
-      "After a stroke, Vijay regained mobility through MOB-EASE’s neuro rehabilitation. Our personalized care plan and assistive devices helped him return to his job.",
-    image: "/images/vijay-thomas.jpg",
-    alt: "Vijay Thomas, neuro rehabilitation patient at MOB-EASE Rehab",
-    href: "/success-stories/vijay-thomas",
+      "After a stroke, Thomas regained mobility through MOB‑EASE’s neuro rehabilitation. Our personalized care plan and assistive devices helped him return to work.",
+    image: "/thomas-mathew.webp",
+    alt: "Thomas Mathew, neuro rehabilitation patient at MOB‑EASE Rehab",
+    href: "/success-stories/thomas-mathew",
   },
 ];
 

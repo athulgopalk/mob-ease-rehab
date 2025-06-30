@@ -1,4 +1,3 @@
-// app/products/[id]/page.js
 "use client";
 
 import { useState, useRef } from "react";
@@ -14,19 +13,23 @@ const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
 const ProductPage = ({ params: paramsPromise }) => {
+  // Move hooks to the top, before any early return
+  const [activeImage, setActiveImage] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [activeTab, setActiveTab] = useState("description");
+
+  // Resolve params and find product
   const params = use(paramsPromise);
   const product = products.find((p) => p.id === params.id);
 
+  // Early return after hooks
   if (!product) return notFound();
 
   const images =
     product.images && product.images.length > 0
       ? product.images
       : [placeholderImage];
-  const [activeImage, setActiveImage] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const [activeTab, setActiveTab] = useState("description");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -74,14 +77,14 @@ const ProductPage = ({ params: paramsPromise }) => {
           whileTap="tap"
           animate="pulse"
         >
-          {/* <Link href={whatsappLink} target="_blank">
+          <Link href={whatsappLink} target="_blank">
             <button
               className="bg-[#1A2B6B] text-white px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300 shadow-lg"
               aria-label={`Buy ${product.name} via WhatsApp`}
             >
               Buy Now
             </button>
-          </Link> */}
+          </Link>
         </motion.div>
 
         {/* Product Header */}

@@ -10,7 +10,7 @@ const teamMembers = [
   {
     name: "Dr. Thaha Muhammadali PT",
     title: "Founder & Clinical Study Start-Up Specialist",
-    image: "/ThahaMuhammadaliPT.jpg",
+    image: "/ThahaMuhammadaliPT.webp",
     alt: "Dr. Thaha Muhammadali PT, Founder at MOB-EASE Rehab",
     qualifications:
       "BPT, MPT (Cardiorespiratory), MSc in Advancing Physiotherapy Practice – Coventry University (UK)",
@@ -30,7 +30,7 @@ const teamMembers = [
   {
     name: "Dr. Akhil Krishna PT",
     title: "Clinical Innovation Lead – Neuro Rehabilitation",
-    image: "/AkhilKrishnaPT.jpg",
+    image: "/AkhilKrishnaPT.webp",
     alt: "Dr. Akhil Krishna PT, Clinical Innovation Lead at MOB-EASE Rehab",
     qualifications: "BPT, MPT (Neurology), Co-Founder",
     mission:
@@ -49,7 +49,7 @@ const teamMembers = [
   {
     name: "Dr. Anjana Sundaran PT",
     title: "Director – Women's Health, Neuro & Pediatric Rehabilitation",
-    image: "/AnjanaSundaranpt.jpg",
+    image: "/AnjanaSundaranpt.webp",
     alt: "Dr. Anjana Sundaran PT, Director at MOB-EASE Rehab",
     qualifications:
       "BPT, MPT (Neurology & Psychosomatic Disorders), MIAFT, MIAP, Co-Founder, Assistant Professor",
@@ -69,7 +69,7 @@ const teamMembers = [
   {
     name: "Dr. Pavithra Akhil PT",
     title: "Director – Orthopedic & Community-Based Rehabilitation",
-    image: "/PavithraAkhilPT.JPG",
+    image: "/PavithraAkhilPT.webp",
     alt: "Dr. Pavithra Akhil PT, Director at MOB-EASE Rehab",
     qualifications: "BPT, MPT (Musculoskeletal Physiotherapy), Co-Founder",
     mission:
@@ -88,7 +88,7 @@ const teamMembers = [
   {
     name: "Ar. Shabana Sainab",
     title: "Rehabilitation Space Architect & Inclusive Design Consultant",
-    image: "/ShabanaSainab.JPG",
+    image: "/ShabanaSainab.webp",
     alt: "Ar. Shabana Sainab, Rehabilitation Space Architect at MOB-EASE Rehab",
     qualifications:
       "Architect in Practice, Specialist in Spatial Rehabilitation Design",

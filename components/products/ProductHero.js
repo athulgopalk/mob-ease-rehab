@@ -189,7 +189,7 @@ const ProductHero = () => {
               className="md:w-1/2"
             >
               <Image
-                src="/images/product-hero.jpg" // Replace with actual hero image (e.g., patient using a mobility aid)
+                src="/product-hero.webp" // Replace with actual hero image (e.g., patient using a mobility aid)
                 alt="Patient using mobility aid at MOB-EASE Rehab Kottayam"
                 width={600}
                 height={400}

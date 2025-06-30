@@ -12,9 +12,6 @@ import { products } from "@/constants/products";
 const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
-// Product data
-
-
 const ProductGrid = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -31,7 +28,8 @@ const ProductGrid = () => {
       const categoryMatch =
         filters.category === "all" || product.category === filters.category;
       const useCaseMatch =
-        filters.useCase === "all" || product.useCase.includes(filters.useCase);
+        filters.useCase === "all" ||
+        (product.useCase && product.useCase.includes(filters.useCase));
       const priceMatch = (() => {
         if (filters.price === "all") return true;
         const [min, max] = filters.price
@@ -72,10 +70,11 @@ const ProductGrid = () => {
 
   return (
     <section
-      className="relative w-full py-16 md:py-24 bg-[#E6F0FA] overflow-hidden "
+      className="relative w-full py-16 md:py-24 bg-[#E6F0FA] overflow-visible min-h-[400px]"
       aria-label="Product Grid Section"
+      ref={ref}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A2B6B] text-center mb-10 md:mb-12"
@@ -91,15 +90,15 @@ const ProductGrid = () => {
 
         {/* Product Grid */}
         {filteredProducts.length === 0 ? (
-          <p className="text-center text-[#1A2B6B] text-lg">
+          <p className="text-center text-[#1A2B6B] text-lg mt-8">
             No products match your filters.
           </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 w-full">
             {filteredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="flex flex-col bg-[#FFFFFF] rounded-xl p-4 sm:p-6 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                className="flex flex-col bg-[#FFFFFF] rounded-xl p-4 sm:p-6 shadow-[0_4px_12px_rgba(0,0,0,0.1)] w-full min-w-[200px] max-w-[400px] mx-auto"
                 custom={index}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -108,13 +107,12 @@ const ProductGrid = () => {
                 variants={cardVariants}
               >
                 {/* Product Image */}
-                <div className="w-full h-48 sm:h-56 mb-4 rounded-lg overflow-hidden">
+                <div className="relative w-full h-48 sm:h-56 mb-4 rounded-lg overflow-hidden">
                   <Image
-                    src={product.image}
-                    alt={product.alt}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover"
+                    src={product.image || placeholderImage}
+                    alt={product.alt || `${product.name} image`}
+                    fill
+                    className="object-cover"
                     placeholder="blur"
                     blurDataURL={placeholderImage}
                     onError={() =>
@@ -128,7 +126,7 @@ const ProductGrid = () => {
                   {product.name}
                 </h3>
                 <p className="text-sm md:text-base text-[#1A2B6B] mb-4">
-                  ₹{product.price.toLocaleString()}
+                  ₹{product.price ? product.price.toLocaleString() : "N/A"}
                 </p>
 
                 {/* View Details Button */}

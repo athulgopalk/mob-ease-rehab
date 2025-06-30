@@ -1,19 +1,28 @@
 "use client";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {VolumeOff } from "lucide-react"
+import { VolumeOff, Volume2 } from "lucide-react";
  // Placeholder image for fallback
 const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
 const Hero = () => {
+  const [isMuted, setIsMuted] = useState(true);
   // Animation variants for background
   const backgroundVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1, ease: "easeOut" } },
   };
+  const handleToggleMute = () => {
+    const video = document.querySelector("video");
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(video.muted);
+    }
+  };
+
 
   // Animation variants for text
   const textVariants = {
@@ -123,14 +132,11 @@ const Hero = () => {
             />
             <div className="absolute bottom-4 right-4">
               <button
-                onClick={() => {
-                  const video = document.querySelector("video");
-                  video.muted = !video.muted;
-                }}
+                onClick={handleToggleMute}
                 className="p-2 bg-[#1A2B6B]/80 hover:bg-[#1A2B6B] text-white rounded-full focus:outline-none focus:ring-2 focus:ring-[#1A2B6B] transition-colors duration-200"
-                aria-label="Toggle video sound"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
-                <VolumeOff />
+                {isMuted ? <VolumeOff /> : <Volume2 />}
               </button>
             </div>
           </motion.div>
