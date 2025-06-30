@@ -93,12 +93,10 @@ const ContactHero = () => {
   };
 
   return (
-    
     <section
       className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24 px-19"
       aria-label="Contact Hero Section"
     >
-      
       <style>{particleStyles}</style>
       <motion.div
         className="particle-bg"
@@ -141,7 +139,7 @@ const ContactHero = () => {
               variants={childVariants}
             >
               <motion.a
-                href="https://wa.me/+919876543210" // Replace with actual WhatsApp number
+                href="https://wa.me/+919496095810" 
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={ctaVariants}

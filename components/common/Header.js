@@ -79,16 +79,16 @@ const Header = () => {
           </ul>
 
           {/* CTA Button */}
-          <motion.a
-            href="https://wa.me/+919876543210" // Replace with actual WhatsApp number
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(0,0,0,0.15)" }}
-            className="bg-[#1A2B6B] text-[#FFFFFF] px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
-            aria-label="Book Appointment via WhatsApp"
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-[#1A2B6B] text-[#FFFFFF] px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+            aria-label="Book Appointment at MOB-EASE Rehab Kottayam"
           >
-            Book Appointment
-          </motion.a>
+            <Link href="/#Booking" scroll={true}>
+              Book Appointment
+            </Link>
+          </motion.div>
         </div>
       </nav>
     </motion.header>

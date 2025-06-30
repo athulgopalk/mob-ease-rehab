@@ -26,7 +26,7 @@ const BookConsultation = () => {
     e.preventDefault();
     const { name, email, mobile, issue, preferredDate } = formData;
     const message = `New Consultation Request:%0AName: ${name}%0AEmail: ${email}%0AMobile: ${mobile}%0AIssue: ${issue}%0APreferred Date: ${preferredDate}`;
-    const whatsappUrl = `https://wa.me/+919876543210?text=${message}`; // Replace with actual WhatsApp number
+    const whatsappUrl = `https://wa.me/+918129125810?text=${message}`; 
     window.open(whatsappUrl, "_blank");
   };
 
@@ -65,6 +65,7 @@ const BookConsultation = () => {
     <section
       className="relative w-full py-16 md:py-24 bg-[#FFFFFF] overflow-hidden"
       aria-label="Book a Consultation at MOB-EASE Rehab Kottayam"
+      id="Booking"
     >
       {/* Schema Markup for Local Business */}
       <script
@@ -82,7 +83,7 @@ const BookConsultation = () => {
               addressRegion: "Kerala",
               addressCountry: "India",
             },
-            telephone: "+919876543210", // Replace with actual phone number
+            telephone: "+918129125810", // Replace with actual phone number
           }),
         }}
       />

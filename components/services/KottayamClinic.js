@@ -170,7 +170,7 @@ const KottayamClinic = () => {
             animate={isInView ? "visible" : "hidden"}
           >
             <iframe
-              src="https://maps.app.goo.gl/C8KAwsCzQ7Wtopu76?g_st=aw"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.7772099681465!2d76.53328549999999!3d9.6144422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062b79af680f6b%3A0x5fab966eb5a877b!2sConsultant%20Physiotherapists%20in%20Kumaranalloor%2C%20Kottayam.!5e0!3m2!1sen!2sin!4v1751302269618!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}

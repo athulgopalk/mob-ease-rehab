@@ -1,199 +1,234 @@
+// app/products/[id]/page.js
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { use } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { products } from "@/constants/products";
 import { notFound } from "next/navigation";
+import RelatedProducts from "@/components/products/RelatedProducts";
 
-// Placeholder image for fallback
 const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 
-// Product data (import from lib/products.js or fetch via API)
-const products = [
-  // Your products array from ProductGrid
-  // Ideally, move this to a separate file or fetch from an API
-  {
-    id: "gantry-hoist-single-motor",
-    name: "Gantry Hoist (Single Motor)",
-    category: "gantry-hoists",
-    price: 15000,
-    useCase: ["home", "clinic"],
-    image: "/images/gantry-hoist-single-motor.jpg",
-    alt: "Gantry Hoist Single Motor for patient transfers by MOB-EASE Rehab",
-    description:
-      "A reliable single-motor gantry hoist designed for safe and easy patient transfers.",
-    specifications: {
-      weightCapacity: "150 kg",
-      motor: "Single DC motor",
-      dimensions: "120 x 60 x 200 cm",
-      battery: "Rechargeable 24V",
-    },
-  },
-  // ... other products
-];
+const ProductPage = ({ params: paramsPromise }) => {
+  const params = use(paramsPromise);
+  const product = products.find((p) => p.id === params.id);
 
-export default function ProductPage({ params }) {
-  const { id } = params;
-  const product = products.find((p) => p.id === id);
+  if (!product) return notFound();
 
-  // Handle product not found
-  if (!product) {
-    notFound();
-  }
-
-  // State for active tab
+  const images =
+    product.images && product.images.length > 0
+      ? product.images
+      : [placeholderImage];
+  const [activeImage, setActiveImage] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [activeTab, setActiveTab] = useState("description");
 
-  // Animation variants for tab content
-  const tabVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const containerVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { staggerChildren: 0.2, ease: "easeOut" },
     },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
   };
 
-  // WhatsApp link
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const buttonPulse = {
+    hover: { scale: 1.05 },
+    tap: { scale: 0.95 },
+    pulse: {
+      scale: [1, 1.05, 1],
+      transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+    },
+  };
+
   const whatsappMessage = encodeURIComponent(
-    `Hi, I'm interested in the ${
-      product.name
-    } (Price: ₹${product.price.toLocaleString()}). Can you provide more details?`
+    `I'm interested in ${product.name}. Please provide more details.`
   );
-  const whatsappLink = `https://wa.me/+919496095810?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/919496095810?text=${whatsappMessage}`;
 
   return (
-    <section className="relative w-full py-16 md:py-24 bg-[#E6F0FA] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Product Header */}
+    <section
+      className="relative w-full min-h-screen bg-[#F8FAFC] py-16 md:py-24 overflow-hidden"
+      ref={ref}
+    >
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        {/* Sticky Buy Now Button (Header) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-10"
+          className="fixed top-4 right-4 z-50"
+          variants={buttonPulse}
+          whileHover="hover"
+          whileTap="tap"
+          animate="pulse"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2B6B]">
-            {product.name}
-          </h1>
-          <p className="text-lg md:text-xl text-[#1A2B6B] mt-2">
-            ₹{product.price.toLocaleString()}
-          </p>
+          {/* <Link href={whatsappLink} target="_blank">
+            <button
+              className="bg-[#1A2B6B] text-white px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300 shadow-lg"
+              aria-label={`Buy ${product.name} via WhatsApp`}
+            >
+              Buy Now
+            </button>
+          </Link> */}
         </motion.div>
 
-        {/* Product Image and Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {/* Product Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full"
-          >
+        {/* Product Header */}
+        <motion.h1
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2B6B] mb-8 text-center"
+          variants={itemVariants}
+        >
+          {product.name}
+        </motion.h1>
+
+        {/* Image Gallery */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
+          variants={itemVariants}
+        >
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
             <Image
-              src={product.image}
-              alt={product.alt}
-              width={600}
-              height={400}
-              className="w-full h-auto rounded-lg object-cover shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+              src={images[activeImage]}
+              alt={product.alt || `${product.name} image`}
+              fill
+              className="object-cover"
               placeholder="blur"
               blurDataURL={placeholderImage}
               onError={() =>
                 console.warn(`Failed to load image for ${product.name}`)
               }
             />
-          </motion.div>
-
-          {/* Product Details */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col"
-          >
-            {/* Tabs */}
-            <div className="flex border-b border-[#1A2B6B] mb-6">
-              {["description", "specifications", "useCases"].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 text-sm md:text-base font-semibold ${
-                    activeTab === tab
-                      ? "bg-[#E6F0FA] text-[#1A2B6B] border-b-2 border-[#1A2B6B]"
-                      : "text-[#1A2B6B] hover:bg-[#E6F0FA]"
-                  } transition-all duration-300`}
-                >
-                  {tab.charAt(0).toUpperCase() +
-                    tab.slice(1).replace("useCases", "Use Cases")}
-                </button>
-              ))}
-            </div>
-
-            {/* Tab Content */}
-            <AnimatePresence mode="wait">
+          </div>
+          <div className="flex flex-row lg:flex-col gap-4 justify-center">
+            {images.map((img, index) => (
               <motion.div
-                key={activeTab}
-                variants={tabVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="bg-[#E6F0FA] p-6 rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                key={index}
+                className={`w-20 h-20 rounded-lg overflow-hidden cursor-pointer border-2 ${
+                  activeImage === index
+                    ? "border-[#1A2B6B]"
+                    : "border-transparent"
+                }`}
+                onClick={() => setActiveImage(index)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                {activeTab === "description" && (
-                  <p className="text-sm md:text-base text-[#1A2B6B]">
-                    {product.description || "No description available."}
-                  </p>
-                )}
-                {activeTab === "specifications" && (
-                  <ul className="text-sm md:text-base text-[#1A2B6B] list-disc pl-5">
-                    {product.specifications ? (
-                      Object.entries(product.specifications).map(
-                        ([key, value]) => (
-                          <li key={key}>
-                            <span className="font-semibold">
-                              {key.replace(/([A-Z])/g, " $1").trim()}:
-                            </span>{" "}
-                            {value}
-                          </li>
-                        )
-                      )
-                    ) : (
-                      <li>No specifications available.</li>
-                    )}
-                  </ul>
-                )}
-                {activeTab === "useCases" && (
-                  <ul className="text-sm md:text-base text-[#1A2B6B] list-disc pl-5">
-                    {product.useCase.map((use, index) => (
-                      <li key={index}>
-                        {use.charAt(0).toUpperCase() + use.slice(1)}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <Image
+                  src={img}
+                  alt={`${product.name} thumbnail ${index + 1}`}
+                  width={80}
+                  height={80}
+                  className="object-cover"
+                />
               </motion.div>
-            </AnimatePresence>
+            ))}
+          </div>
+        </motion.div>
 
-            {/* Buy Now Button */}
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full bg-[#1A2B6B] text-[#FFFFFF] px-6 py-3 rounded-full font-semibold text-base uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
-                aria-label={`Contact via WhatsApp for ${product.name}`}
+        {/* Product Details */}
+        <motion.div
+          className="bg-white rounded-xl p-6 shadow-lg"
+          variants={itemVariants}
+        >
+          <div className="flex border-b border-gray-200 mb-6">
+            {["description", "specifications", "useCase"].map((tab) => (
+              <button
+                key={tab}
+                className={`flex-1 py-3 text-center font-semibold text-sm md:text-base capitalize ${
+                  activeTab === tab
+                    ? "bg-[#E6F0FA] text-[#1A2B6B] border-b-2 border-[#1A2B6B]"
+                    : "text-gray-600 hover:bg-[#E6F0FA]"
+                }`}
+                onClick={() => setActiveTab(tab)}
               >
-                Buy Now
-              </motion.button>
-            </a>
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-[#1A2B6B]"
+          >
+            {activeTab === "description" && (
+              <p className="text-sm md:text-base">
+                {product.description || "No description available."}
+              </p>
+            )}
+            {activeTab === "specifications" && (
+              <ul className="list-disc pl-5 text-sm md:text-base">
+                {product.specifications &&
+                Object.keys(product.specifications).length > 0 ? (
+                  Object.entries(product.specifications).map(([key, value]) => (
+                    <li key={key}>
+                      <strong>{key.replace(/([A-Z])/g, " $1").trim()}:</strong>{" "}
+                      {value}
+                    </li>
+                  ))
+                ) : (
+                  <li>No specifications available.</li>
+                )}
+              </ul>
+            )}
+            {activeTab === "useCase" && (
+              <ul className="list-disc pl-5 text-sm md:text-base">
+                {product.useCase && product.useCase.length > 0 ? (
+                  product.useCase.map((use, index) => (
+                    <li key={index}>Ideal for {use} settings</li>
+                  ))
+                ) : (
+                  <li>No use cases specified.</li>
+                )}
+              </ul>
+            )}
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+
+        {/* Price and Buy Now (Footer) */}
+        <motion.div
+          className="mt-8 flex flex-col sm:flex-row justify-between items-center"
+          variants={itemVariants}
+        >
+          <p className="text-2xl font-bold text-[#1A2B6B] mb-4 sm:mb-0">
+            ₹
+            {product.price
+              ? product.price.toLocaleString()
+              : "Price not available"}
+          </p>
+          <Link href={whatsappLink} target="_blank">
+            <motion.button
+              className="bg-[#1A2B6B] text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300 shadow-lg"
+              variants={buttonPulse}
+              whileHover="hover"
+              whileTap="tap"
+              animate="pulse"
+              aria-label={`Buy ${product.name} via WhatsApp`}
+            >
+              Buy Now
+            </motion.button>
+          </Link>
+        </motion.div>
+
+        {/* Related Products Section */}
+        <motion.div className="mt-12" variants={itemVariants}>
+          <RelatedProducts currentProductId={product.id} />
+        </motion.div>
+      </motion.div>
     </section>
   );
-}
+};
+
+export default ProductPage;
