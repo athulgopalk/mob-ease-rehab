@@ -6,11 +6,11 @@ export const products = [
     category: "gantry-hoists",
     price: 15000,
     useCase: ["home", "clinic"],
-    image: "/images/gantry-hoist-single-motor.jpg", // For ProductGrid
+    image: "/products/Gantry Hoist (Single Motor)-1.png", // For ProductGrid
     images: [
-      "/images/gantry-hoist-single-motor-1.jpg",
-      "/images/gantry-hoist-single-motor-2.jpg",
-      "/images/gantry-hoist-single-motor-3.jpg",
+      "/products/Gantry Hoist (Single Motor)-1.png",
+      "/products/Gantry Hoist (Single Motor)-2.png",
+      "/products/Gantry Hoist (Single Motor)-3.png",
     ], // For ProductPage gallery
     alt: "Gantry Hoist Single Motor for patient transfers by MOB-EASE Rehab",
     description:
@@ -28,12 +28,11 @@ export const products = [
     category: "gantry-hoists",
     price: 18000,
     useCase: ["home", "clinic"],
-    image: "/images/gantry-hoist-dual-motor.jpg",
+    image: "/products/GantryHoist (Dual Motor)-1.png",
     images: [
-      "/images/gantry-hoist-dual-motor-1.jpg",
-      "/images/gantry-hoist-dual-motor-2.jpg",
-      "/images/gantry-hoist-dual-motor-3.jpg",
-      "/images/gantry-hoist-dual-motor-4.jpg",
+      "/products/GantryHoist (Dual Motor)-1.png",
+      "/products/GantryHoist (Dual Motor)-2.png",
+      "/products/GantryHoist (Dual Motor)-3.png",
     ],
     alt: "Gantry Hoist Dual Motor for independent transfers by MOB-EASE Rehab",
     description:
