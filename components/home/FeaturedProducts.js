@@ -71,7 +71,7 @@ const FeaturedProducts = () => {
               variants={cardVariants}
             >
               {/* Product Image */}
-              <div className="w-full h-40 sm:h-48 md:h-56 mb-3 sm:mb-4 rounded-lg overflow-hidden">
+              <div className="w-full   mb-3 sm:mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={product.image || placeholderImage}
                   alt={product.alt || `${product.name} image`}

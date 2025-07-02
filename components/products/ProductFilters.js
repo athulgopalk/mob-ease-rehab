@@ -15,13 +15,6 @@ const filterOptions = {
     { value: "stair-lifts", label: "Stair Lifts" },
     { value: "wheelchairs", label: "Wheelchairs" },
   ],
-  price: [
-    { value: "all", label: "All Prices" },
-    { value: "0-5000", label: "₹0 - ₹5,000" },
-    { value: "5000-10000", label: "₹5,000 - ₹10,000" },
-    { value: "10000-20000", label: "₹10,000 - ₹20,000" },
-    { value: "20000+", label: "₹20,000+" },
-  ],
   useCase: [
     { value: "all", label: "All Use Cases" },
     { value: "home", label: "Home" },
