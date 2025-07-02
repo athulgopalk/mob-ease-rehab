@@ -219,12 +219,12 @@ const ProductPage = ({ params: paramsPromise }) => {
           className="mt-8 flex flex-col sm:flex-row justify-between items-center max-w-3xl mx-auto"
           variants={itemVariants}
         >
-          <p className="text-2xl font-bold text-[#1A2B6B] mb-4 sm:mb-0">
+          {/* <p className="text-2xl font-bold text-[#1A2B6B] mb-4 sm:mb-0">
             ₹
             {product.price
               ? product.price.toLocaleString()
               : "Price not available"}
-          </p>
+          </p> */}
           <Link href={whatsappLink} target="_blank">
             <motion.button
               className="bg-[#1A2B6B] text-white px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300 shadow-lg"
