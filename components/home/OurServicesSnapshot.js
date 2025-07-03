@@ -9,17 +9,17 @@ const services = [
   {
     title: "Women’s Health",
     description: "Tailored physiotherapy for women’s unique wellness needs.",
-    href: "/services/womens-health",
+    href: "/services",
   },
   {
     title: "Pediatric Rehabilitation",
     description: "Specialized care to support children’s mobility and growth.",
-    href: "/services/pediatric-rehabilitation",
+    href: "/services",
   },
   {
     title: "Mobility Solutions",
     description: "Innovative aids to enhance independence and comfort.",
-    href: "/services/mobility-solutions",
+    href: "/services",
   },
 ];
 
@@ -95,7 +95,7 @@ const OurServicesSnapshot = () => {
                   }}
                   aria-label={`Learn more about ${service.title}`}
                 >
-                  Learn More
+                  See all Services
                 </motion.button>
               </Link>
             </motion.div>
@@ -129,7 +129,7 @@ const OurServicesSnapshot = () => {
                   }}
                   aria-label={`Learn more about ${service.title}`}
                 >
-                  Learn More
+                  See all Services
                 </motion.button>
               </Link>
             </motion.div>

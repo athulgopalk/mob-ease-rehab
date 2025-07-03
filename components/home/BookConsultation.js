@@ -104,7 +104,7 @@ const BookConsultation = () => {
           animate="visible"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A2B6B] mb-6">
-            Visit Our Kottayam Clinic for Personalized Care
+            Visit Our  Clinic for Personalized Care
           </h2>
           <p className="text-base sm:text-lg text-[#1A2B6B] mb-8 max-w-2xl mx-auto">
             Book a consultation at MOB-EASE Rehab, the leading physiotherapy

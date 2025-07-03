@@ -53,7 +53,7 @@ const RelatedProducts = ({ currentProductId }) => {
               whileTap="tap"
               variants={cardVariants}
             >
-              <div className="w-full h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 rounded-lg overflow-hidden">
+              <div className="w-full mb-3 sm:mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={product.image || placeholderImage}
                   alt={product.alt || `${product.name} image`}
@@ -67,18 +67,18 @@ const RelatedProducts = ({ currentProductId }) => {
                   }
                 />
               </div>
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#1A2B6B] mb-2 line-clamp-2">
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#1A2B6B] mb-4 line-clamp-2">
                 {product.name}
               </h3>
-              <p className="text-xs sm:text-sm md:text-base text-[#1A2B6B] mb-3 sm:mb-4">
+              {/* <p className="text-xs sm:text-sm md:text-base text-[#1A2B6B] mb-3 sm:mb-4">
                 ₹
                 {product.price
                   ? product.price.toLocaleString()
                   : "Price not available"}
-              </p>
+              </p> */}
               <Link href={`/products/${product.id}`} className="mt-auto">
                 <motion.button
-                  className="w-full bg-[#1A2B6B] text-[#FFFFFF] px-3 py-1.5 sm:px-4 sm:py-2 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+                  className="w-full bg-[#1A2B6B] text-[#FFFFFF] px-3 py-3 sm:px-4 sm:py-2 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wide hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={`View details for ${product.name}`}

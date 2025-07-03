@@ -488,7 +488,7 @@ const ClinicInformation = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          Discover Our Kottayam Clinic
+          Discover Our  Clinic
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8">

@@ -129,14 +129,14 @@ const PatientStories = () => {
 
           {/* Navigation Arrows */}
           <button
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 rounded-full bg-[#1A2B6B] text-[#FFFFFF] hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+            className="absolute top-50 md:top-1/2 left-4 transform -translate-y-1/2 p-2 rounded-full bg-[#1A2B6B] text-[#FFFFFF] hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300 "
             onClick={prevTestimonial}
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 rounded-full bg-[#1A2B6B] text-[#FFFFFF] hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
+            className="absolute top-50 md:top-1/2 right-4 transform -translate-y-1/2 p-2 rounded-full bg-[#1A2B6B] text-[#FFFFFF] hover:bg-[#FFE6F0] hover:text-[#1A2B6B] transition-all duration-300"
             onClick={nextTestimonial}
             aria-label="Next testimonial"
           >

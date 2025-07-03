@@ -61,7 +61,7 @@ const ProductPage = ({ params: paramsPromise }) => {
 
   return (
     <section
-      className="relative w-full min-h-screen bg-[#F8FAFC] py-16 md:py-24 overflow-hidden flex justify-center"
+      className="relative w-full min-h-screen bg-[#F8FAFC] py-24 md:py-24 overflow-hidden flex justify-center"
       ref={ref}
     >
       <motion.div

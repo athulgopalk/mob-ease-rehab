@@ -186,7 +186,7 @@ const ProductHero = () => {
               variants={imageVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="md:w-1/2"
+              className="w-84 md:w-1/2"
             >
               <Image
                 src="/product-hero.webp" // Replace with actual hero image (e.g., patient using a mobility aid)

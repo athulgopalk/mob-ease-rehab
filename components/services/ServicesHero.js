@@ -107,10 +107,10 @@ const ServicesHero = () => {
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="md:w-1/2"
+            className="w-84 md:w-1/2"
           >
             <Image
-              src="/images/services-hero.jpg" // Replace with actual hero image
+              src="/services-hero.webp" // Replace with actual hero image
               alt="Physiotherapist assisting patient with mobility aid"
               width={600}
               height={400}

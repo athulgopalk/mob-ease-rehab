@@ -94,7 +94,7 @@ const ContactHero = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24 px-19"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-24 md:py-24 px-19"
       aria-label="Contact Hero Section"
     >
       <style>{particleStyles}</style>
@@ -139,7 +139,7 @@ const ContactHero = () => {
               variants={childVariants}
             >
               <motion.a
-                href="https://wa.me/+919496095810" 
+                href="/contact#booking"
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={ctaVariants}
@@ -153,7 +153,7 @@ const ContactHero = () => {
                 Book Appointment
               </motion.a>
               <motion.a
-                href="/contact#form"
+                href="https://wa.me/+918129125810"
                 variants={ctaVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -172,10 +172,10 @@ const ContactHero = () => {
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="md:w-1/2"
+            className="w-84 md:w-1/2"
           >
             <Image
-              src="/images/contact-hero.jpg" // Replace with actual hero image
+              src="/contact-hero.webp" // Replace with actual hero image
               alt="Physiotherapist inspiring patient at MOB-EASE Rehab Kottayam"
               width={600}
               height={400}

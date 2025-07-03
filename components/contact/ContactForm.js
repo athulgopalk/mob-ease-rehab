@@ -178,6 +178,7 @@ const ContactForm = () => {
     <section
       className="relative w-full py-16 md:py-24 bg-[#FFFFFF] overflow-hidden"
       aria-label="Contact Form Section"
+      id="booking"
     >
       {/* SEO Meta Tags (Note: Move to next/head for Next.js) */}
       <head>

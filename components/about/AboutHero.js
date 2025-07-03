@@ -77,7 +77,7 @@ const AboutHero = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-16 md:py-24 px-19"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] to-[#E6F0FA] py-24 md:py-24 px-19"
       aria-label="About Hero Section"
     >
       {/* SEO Meta Tags */}
@@ -154,7 +154,7 @@ const AboutHero = () => {
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="md:w-1/2"
+            className="w-84 md:w-1/2"
           >
             <Image
               src="/about-hero.webp"

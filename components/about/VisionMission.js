@@ -103,6 +103,7 @@ const VisionMission = () => {
       <section
         className="relative w-full py-16 md:py-24 bg-[#E6F0FA] overflow-hidden"
         aria-label="Vision & Mission Section"
+        id="mission"
       >
         {/* Futuristic Effects */}
         <style>{futuristicStyles}</style>

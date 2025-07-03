@@ -136,7 +136,7 @@ const OurStory = () => {
         <div className="container relative z-10" ref={ref}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Image Section */}
-            <motion.div
+            {/* <motion.div
               className="relative w-full h-[24rem] sm:h-[28rem] lg:h-[32rem] rounded-2xl overflow-hidden"
               variants={imageVariants}
               initial="hidden"
@@ -153,7 +153,7 @@ const OurStory = () => {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 onError={() => console.warn("Failed to load Our Story image")}
               />
-            </motion.div>
+            </motion.div> */}
 
             {/* Text Section */}
             <motion.div
